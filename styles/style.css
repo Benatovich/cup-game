@@ -28,7 +28,8 @@ body {
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
+    background-color: navy;
+    color: palevioletred;
 }
 
 main {
@@ -40,7 +41,6 @@ main {
 }
 
 section {
-    background-color: var(--color5);
     max-width: 80%;
     display: flex;
     flex-direction: column;
@@ -50,7 +50,7 @@ section {
     padding-bottom: var(--gutter);
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
-    border: solid 2px var(--color1);
+    /* border: solid 2px var(--color1); */
 }
 
 header {
@@ -88,4 +88,32 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+.cups {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 250px;
+}
+
+.cup {
+    display: flex;
+    flex-direction: column;
+}
+
+.cup img {
+    height: 200px;
+    margin: 10px;
+}
+
+.cup button {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.results {
+  background-color: black;
+  margin: 10px;
+  border: 10px solid black;
 }
