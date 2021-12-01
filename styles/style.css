@@ -121,3 +121,7 @@ footer {
 .results button {
     cursor: pointer;
 }
+
+.difficulty button {
+    cursor: pointer;
+}

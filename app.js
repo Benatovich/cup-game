@@ -11,6 +11,17 @@ const totalEl = document.getElementById('total');
 const resetButton = document.getElementById('reset');
 const clearButton = document.getElementById('clear');
 
+const easyButton = document.getElementById('easy');
+const mediumButton = document.getElementById('medium');
+const hardButton = document.getElementById('hard');
+
+// easyButton.addEventListener('click', () => {
+//   resetCups();
+//   clearStats();
+
+// });
+
+
 // let state
 let wins = 0;
 let losses = 0;
