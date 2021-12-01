@@ -8,10 +8,13 @@ const img3 = document.getElementById('cup-three-img');
 const winsEl = document.getElementById('wins');
 const lossesEl = document.getElementById('losses');
 const totalEl = document.getElementById('total');
+const resetButton = document.getElementById('reset');
+const clearButton = document.getElementById('clear');
 
 // let state
 let wins = 0;
 let losses = 0;
+let total = 0;
 
 function resetCups() {
   img1.src = './assets/cup.png'
@@ -24,6 +27,28 @@ function showStats() {
   lossesEl.textContent = losses;
   totalEl.textContent = wins + losses;
 }
+
+function clearStats() {
+  if (wins === 0) {
+    winsEl.textContent = 0;
+  } else {
+    wins--;
+    clearStats();
+  };
+  if (losses === 0) {
+    lossesEl.textContent = 0;
+  } else {
+    losses--;
+    clearStats();
+  };
+  if (total === 0) {
+    totalEl.textContent = 0;
+  } else {
+    total--;
+    clearStats();
+  }
+  }
+
 
 // set event listeners 
 button1.addEventListener('click', () => {
@@ -81,4 +106,12 @@ button3.addEventListener('click', () => {
     losses++;
   }
   showStats();
+});
+
+resetButton.addEventListener('click', () => {
+  resetCups();
+});
+
+clearButton.addEventListener('click', () => {
+  clearStats();
 })
