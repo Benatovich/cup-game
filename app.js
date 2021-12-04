@@ -33,21 +33,22 @@ const hidingPlaces = [
     'cup3',
 ];
 
-function getRandomItem(arr) {
-    const index = Math.floor(Math.random() * arr.length);
-    return arr[index];
-};
+// function getRandomItem(arr) {
+//     const index = Math.floor(Math.random() * arr.length);
+//     return arr[index];
+// }
 
-function handleGuess(userGuess, correctSpot) {
-    resetCups();
-    total++;
-    const correctEl = document.getElementById(`${correctSpot}-container`);
-    correctEl.classList.add('face');
-    if (correctSpot === userGuess) {
-        wins++;
-    }
-    showStats();
-}
+// function handleGuess(userGuess, correctSpot) {
+//     resetCups();
+//     const correctEl = document.getElementById(`${correctSpot}-container`);
+//     correctEl.classList.add('face');
+//     if (correctSpot === userGuess) {
+//         wins++;
+//     } else {
+//         losses++;
+//     }
+//     showStats();
+// }
 
 function resetCups() {
     img1.src = './assets/cup.png';
@@ -82,64 +83,94 @@ function clearStats() {
     }
 }
 
+function getRandomItem(arr) {
+    const index = Math.floor(Math.random() * arr.length);
+    return arr[index];
+}
 
-// set event listeners 
+function handleGuess(userGuess, correctSpot) {
+    resetCups();
+    if (correctSpot === userGuess) {
+        wins++;
+    } else {
+        losses++;
+    }
+    showStats();
+}
+
+// set event listeners
 button1.addEventListener('click', () => {
-    resetCups();
-    const randomCup = Math.floor(Math.random() * 3);
-    console.log(randomCup);
-
-    if (randomCup === 0) {
-        wins++;
-        img1.src = './assets/correct-cup.png';
-
-    } else if (randomCup === 1) {
-        img2.src = './assets/correct-cup.png';
-        losses++;
-    } else {
-        img3.src = './assets/correct-cup.png';
-        losses++;
-    }
-    showStats();
+    const correctSpot = getRandomItem(hidingPlaces);
+    const userGuess = 'cup1';
+    handleGuess(userGuess, correctSpot);
 });
-
 button2.addEventListener('click', () => {
-    resetCups();
-    const randomCup = Math.floor(Math.random() * 3);
-    console.log(randomCup);
-
-    if (randomCup === 1) {
-        wins++;
-        img2.src = './assets/correct-cup.png';
-
-    } else if (randomCup === 0) {
-        img1.src = './assets/correct-cup.png';
-        losses++;
-    } else {
-        img3.src = './assets/correct-cup.png';
-        losses++;
-    }
-    showStats();
+    const correctSpot = getRandomItem(hidingPlaces);
+    const userGuess = 'cup2';
+    handleGuess(userGuess, correctSpot);
 });
-
 button3.addEventListener('click', () => {
-    resetCups();
-    const randomCup = Math.floor(Math.random() * 3);
-    console.log(randomCup);
-
-    if (randomCup === 2) {
-        wins++;
-        img3.src = './assets/correct-cup.png';
-
-    } else if (randomCup === 1) {
-        img2.src = './assets/correct-cup.png';
-        losses++;
-    } else {
-        img1.src = './assets/correct-cup.png';
-        losses++;
-    }
-    showStats();
+    const correctSpot = getRandomItem(hidingPlaces);
+    const userGuess = 'cup3';
+    handleGuess(userGuess, correctSpot);
 });
+
+// OLD EVENT LISTENERS
+// button1.addEventListener('click', () => {
+//     resetCups();
+//     const randomCup = Math.floor(Math.random() * 3);
+//     console.log(randomCup);
+
+//     if (randomCup === 1) {
+//         wins++;
+//         img2.src = './assets/correct-cup.png';
+
+//     } else if (randomCup === 0) {
+//         img1.src = './assets/correct-cup.png';
+//         losses++;
+//     } else {
+//         img3.src = './assets/correct-cup.png';
+//         losses++;
+//     }
+//     showStats();});
+
+// button2.addEventListener('click', () => {
+//     resetCups();
+//     const randomCup = Math.floor(Math.random() * 3);
+//     console.log(randomCup);
+
+//     if (randomCup === 1) {
+//         wins++;
+//         img2.src = './assets/correct-cup.png';
+
+//     } else if (randomCup === 0) {
+//         img1.src = './assets/correct-cup.png';
+//         losses++;
+//     } else {
+//         img3.src = './assets/correct-cup.png';
+//         losses++;
+//     }
+//     showStats();
+// });
+
+// button3.addEventListener('click', () => {
+//     resetCups();
+//     const randomCup = Math.floor(Math.random() * 3);
+//     console.log(randomCup);
+
+//     if (randomCup === 2) {
+//         wins++;
+//         img3.src = './assets/correct-cup.png';
+
+//     } else if (randomCup === 1) {
+//         img2.src = './assets/correct-cup.png';
+//         losses++;
+//     } else {
+//         img1.src = './assets/correct-cup.png';
+//         losses++;
+//     }
+//     showStats();
+// });
 
 resetButton.addEventListener('click', () => {
     resetCups();
