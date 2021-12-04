@@ -11,16 +11,6 @@ const totalEl = document.getElementById('total');
 const resetButton = document.getElementById('reset');
 const clearButton = document.getElementById('clear');
 
-// const easyButton = document.getElementById('easy');
-// const mediumButton = document.getElementById('medium');
-// const hardButton = document.getElementById('hard');
-
-// easyButton.addEventListener('click', () => {
-//   resetCups();
-//   clearStats();
-
-// });
-
 
 // let state
 let wins = 0;
@@ -32,23 +22,6 @@ const hidingPlaces = [
     'cup2',
     'cup3',
 ];
-
-// function getRandomItem(arr) {
-//     const index = Math.floor(Math.random() * arr.length);
-//     return arr[index];
-// }
-
-// function handleGuess(userGuess, correctSpot) {
-//     resetCups();
-//     const correctEl = document.getElementById(`${correctSpot}-container`);
-//     correctEl.classList.add('face');
-//     if (correctSpot === userGuess) {
-//         wins++;
-//     } else {
-//         losses++;
-//     }
-//     showStats();
-// }
 
 function resetCups() {
     img1.src = './assets/cup.png';
@@ -94,6 +67,14 @@ function handleGuess(userGuess, correctSpot) {
         wins++;
     } else {
         losses++;
+    }
+    if (correctSpot === 'cup1') {
+        img1.src = './assets/correct-cup.png';
+
+    } else if (correctSpot === 'cup2') {
+        img2.src = './assets/correct-cup.png';
+    } else {
+        img3.src = './assets/correct-cup.png';
     }
     showStats();
 }
